@@ -7,6 +7,7 @@ import torch
 import torch.backends.cudnn as cudnn
 from numpy import random
 
+
 from models.experimental import attempt_load
 from utils.datasets import LoadStreams, LoadImages
 from utils.general import check_img_size, check_requirements, check_imshow, non_max_suppression, apply_classifier, \
@@ -115,10 +116,25 @@ def detect(save_img=False):
             # Print time (inference + NMS)
             print(f'{s}Done. ({t2 - t1:.3f}s)')
 
+
+            im0 = annotator.result()
+            x = random.randint(1,100000)
+ 
+            if torch.is_tensor(n):
+            	prediction = n.item()
+            else:
+            	prediction = n
+            cv2.putText(im0, 'Number of people=' + str(prediction), (30, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)	
+
+
+
             # Stream results
             if view_img:
                 cv2.imshow(str(p), im0)
                 cv2.waitKey(1)  # 1 millisecond
+                
+                
+                
 
             # Save results (image with detections)
             if save_img:
