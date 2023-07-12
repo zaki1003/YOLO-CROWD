@@ -3,10 +3,16 @@ YOLO-CROWD is a lightweight crowd counting and face detection model that is base
 
 
 ## Description
-
+Deep learning-based algorithms for face and crowd identification have advanced significantly. These algorithms can be broadly categorized into two groups: one-stage detectors like YOLO and two-stage detectors like Faster R-CNN. One-stage detectors have been widely employed in many applications due to the better balance between accuracy and speed, but as we are all aware, YOLO algorithms are significantly impacted by occlusion in crowd scenarios. In our project, we propose a real-time crowd counter and face detector called **YOLO-CROWD**, which has an inference speed of **9 ms** and contains 461 layers and 18388982 parameters. It is based on the one-stage detector YOLOv5. In order to improve the receptive field of small faces, we use a Receptive Field Enhancement module termed RFE. We then use NWD Loss to compensate for the sensitivity of IoU to the position deviation of small objects. We also employ Repulsion Loss to address face occlusion and utilize an attention module called
+SEAM.
 
 ## Demo
 
+![test-yolo-crowd](https://github.com/zaki1003/YOLO-CROWD/assets/65148928/6aed4956-1da5-4b98-ae8a-e7d9574b4054)
+
+![Screenshot from 2023-04-07 15-49-11](https://github.com/zaki1003/YOLO-CROWD/assets/65148928/e435d92b-42f2-4152-bcad-b72268db8d0e)
+
+![Screenshot from 2023-04-07 15-48-52](https://github.com/zaki1003/YOLO-CROWD/assets/65148928/2b5e3273-a697-472c-a201-0b23e5b2faa6)
 
 
 
