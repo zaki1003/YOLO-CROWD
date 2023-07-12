@@ -36,9 +36,9 @@ Enter Python Virtual Environment.
 conda activate {name}
 ```
 
-Install pytorch in *[this](https://pytorch.org/get-started/previous-versions/)*.  
+
 ```shell 
-pip install torch==1.10.0+cu111 torchvision==0.11.0+cu111 torchaudio==0.10.0 -f https://download.pytorch.org/whl/torch_stable.html
+!pip install install torch==1.11 torchvision==0.12 torchtext==0.12 torchaudio==0.11
 ```
 
 Install other python package.   
@@ -50,7 +50,7 @@ pip install -r requirements.txt
 ### Installation
 Get the code.    
 ```shell
-git clone https://github.com/Krasjet-Yu/YOLO-FaceV2.git
+git clone https://github.com/zaki1003/YOLO-CROWD.git
 ```
 
 ### Dataset
@@ -68,11 +68,14 @@ The link is [yolov5s.pt](https://github.com/ultralytics/yolov5/releases/download
 ### Training
 Train your model on **crowd-counting-dataset-w3o7w** dataset.
 ```shell
-python train.py --weights preweight.pt    
-                --data data/WIDER_FACE.yaml    
-                --cfg models/yolov5s_v2_RFEM_MultiSEAM.yaml     
-                --batch-size 32   
-                --epochs 250
+python train.py --img 416
+                --batch 16
+                --epochs 200
+                --data {dataset.location}/data.yaml
+                --cfg models/yolo-crowd.yaml    
+                --weights yolov5s.pt      
+                --name yolo_crowd_results
+                --cache
 ```
 
 ## Postweight
@@ -82,30 +85,17 @@ If you want to have more inference speed try to install TensorRt and use this ve
 
 ### Test
 ```shell
-python detect.py --weights ./preweight/best.pt --source ./data/images/test.jpg --plot-label --view-img
+python detect.py --weights yolo-crowd.pt --source 0                               # webcam
+                                                  img.jpg                         # image
+                                                  vid.mp4                         # video
+                                                  screen                          # screenshot
+                                                  path/                           # directory
+                                                  list.txt                        # list of images
+                                                  list.streams                    # list of streams
+                                                  'path/*.jpg'                    # glob
+                                                  'https://youtu.be/Zgi9g1ksQHc'  # YouTube
+                                                  'rtsp://example.com/media.mp4'  # RTSP, RTMP, HTTP stream
 ```
-
-### Evaluate    
-
-Evaluate the trained model via next code on WIDER FACE   
-        
-If you don't want to train, you can also directly use our trained model to evaluate.   
-
-The link is [yolo-facev2_last.pt](https://github.com/Krasjet-Yu/YOLO-FaceV2/releases/download/v1.0/best.pt)     
-
-
-```shell
-python widerface_pred.py --weights runs/train/x/weights/best.pt     
-                         --save_folder ./widerface_evaluate/widerface_txt_x    
-cd widerface_evaluate/    
-python evaluation.py --pred ./widerface_txt_x
-```
-Download the *[eval_tool](http://shuoyang1213.me/WIDERFACE/support/eval_script/eval_tools.zip)* to show the performance.    
-    
-The result is shown below:    
-
-![](data/images/eval.png)
-
 
 
 
