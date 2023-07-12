@@ -15,6 +15,15 @@ SEAM.
 ![Screenshot from 2023-04-07 15-48-52](https://github.com/zaki1003/YOLO-CROWD/assets/65148928/2b5e3273-a697-472c-a201-0b23e5b2faa6)
 
 
+## Comparison Between Yolov5s And YOLO-CROWD
+
+|                |          mAp@0.5      |       mAp@0.5-095   |           Precision      |          Recall         |         Box loss        |         Object loss      |     Inference Time (ms)  |
+|:-------------------|:---------------|:--------------|:-------------|:-----------|:------------------|:------------------|:-----------------------------|
+|         Yolov5s      |          39.4      |     0.15       |        0.754        |        0.382           |      0.120            |    0.266                  |        **7**            |                    
+|       YOLO-CROWD        |            **43.6**          |         **0.158**         |      **0.756**        |        **0.424**        |         **0.091**       |  **0.158**       |       9        | 
+
+
+
 
 ## Environment Requirments
 Create a Python Virtual Environment.   
@@ -46,8 +55,11 @@ git clone https://github.com/Krasjet-Yu/YOLO-FaceV2.git
 
 ### Dataset
 
-Download our Dataset [crowd-counting-dataset-w3o7w](https://universe.roboflow.com/crowd-dataset/crowd-counting-dataset-w3o7w). 
-While exporting the datset try to choose **YOLO v5 PyTorch** Format
+Download our Dataset [crowd-counting-dataset-w3o7w](https://universe.roboflow.com/crowd-dataset/crowd-counting-dataset-w3o7w), While exporting the datset try to choose **YOLO v5 PyTorch** Format.
+
+![our-dataset](https://github.com/zaki1003/YOLO-CROWD/assets/65148928/7c574121-7eb5-450c-a61d-d259643d22fb)
+
+
 
 ## Preweight
 The link is [yolov5s.pt](https://github.com/ultralytics/yolov5/releases/download/v5.0/yolov5s.pt)
@@ -93,6 +105,13 @@ Download the *[eval_tool](http://shuoyang1213.me/WIDERFACE/support/eval_script/e
 The result is shown below:    
 
 ![](data/images/eval.png)
+
+
+
+
+## Results
+
+![results-yolo-crowd](https://github.com/zaki1003/YOLO-CROWD/assets/65148928/9e2d18ce-aaf6-4a20-91f0-d8d1eb88728c)
 
 
 ## Finetune
