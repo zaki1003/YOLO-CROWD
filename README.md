@@ -70,7 +70,7 @@ git clone https://github.com/zaki1003/YOLO-CROWD.git
 
 ### Dataset
 
-Download our Dataset [crowd-counting-dataset-w3o7w](https://universe.roboflow.com/crowd-dataset/crowd-counting-dataset-w3o7w), While exporting the datset try to choose **YOLO v5 PyTorch** Format.
+Download our Dataset [crowd-counting-dataset-w3o7w](https://universe.roboflow.com/crowd-dataset/crowd-counting-dataset-w3o7w), while exporting the dataset select **YOLO v5 PyTorch** Format.
 
 ![our-dataset](https://github.com/zaki1003/YOLO-CROWD/assets/65148928/7c574121-7eb5-450c-a61d-d259643d22fb)
 
