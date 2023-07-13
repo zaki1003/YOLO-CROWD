@@ -1,3 +1,4 @@
+
 # YOLO-CROWD
 YOLO-CROWD is a lightweight crowd counting and face detection model that is based on Yolov5s and can run on edge devices, as well as fixing the problems of face occlusion, varying face scales, and other challenges of crowd counting
 
@@ -18,9 +19,11 @@ SEAM.
 ### Videos
 #### without showing label
 
+https://github.com/zaki1003/YOLO-CROWD/assets/65148928/b0a57b00-ae72-4a5c-ad68-442be1889e0a
 
 
-Uploading inference with yolo-crowd.mp4…
+
+
 
 
 
@@ -29,7 +32,7 @@ https://github.com/zaki1003/YOLO-CROWD/assets/65148928/44753430-c5ef-4c15-80c7-e
 
 ## Comparison Between Yolov5s And YOLO-CROWD
 
-|                |          mAp@0.5      |       mAp@0.5-095   |           Precision      |          Recall         |         Box loss        |         Object loss      |     Inference Time (ms)  |
+|                |          mAp@0.5      |       mAp@0.5-0.95   |           Precision      |          Recall         |         Box loss        |         Object loss      |     Inference Time (ms)  |
 |:-------------------|:---------------|:--------------|:-------------|:-----------|:------------------|:------------------|:-----------------------------|
 |         Yolov5s      |          39.4      |     0.15       |        0.754        |        0.382           |      0.120            |    0.266                  |        **7**            |                    
 |       YOLO-CROWD        |            **43.6**          |         **0.158**         |      **0.756**        |        **0.424**        |         **0.091**       |  **0.158**       |       10.1        | 
