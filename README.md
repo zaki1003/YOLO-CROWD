@@ -7,7 +7,7 @@ Deep learning-based algorithms for face and crowd identification have advanced s
 SEAM.
 
 ## Demo
-
+### Images
 ![test-yolo-crowd](https://github.com/zaki1003/YOLO-CROWD/assets/65148928/6aed4956-1da5-4b98-ae8a-e7d9574b4054)
 
 ![Screenshot from 2023-04-07 15-49-11](https://github.com/zaki1003/YOLO-CROWD/assets/65148928/e435d92b-42f2-4152-bcad-b72268db8d0e)
@@ -15,10 +15,17 @@ SEAM.
 ![Screenshot from 2023-04-07 15-48-52](https://github.com/zaki1003/YOLO-CROWD/assets/65148928/2b5e3273-a697-472c-a201-0b23e5b2faa6)
 
 
+### Videos
+#### without showing label
 
+
+
+Uploading inference with yolo-crowd.mp4…
+
+
+
+#### with showing label (name + conf)
 https://github.com/zaki1003/YOLO-CROWD/assets/65148928/44753430-c5ef-4c15-80c7-e0f328670aac
-
-
 
 ## Comparison Between Yolov5s And YOLO-CROWD
 
