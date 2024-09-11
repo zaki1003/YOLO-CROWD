@@ -115,23 +115,12 @@ def detect(save_img=False):
                 cv2.putText(im0, 'Number of people=' + str(prediction), (30, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
 
             print(f'{s}Done. ({t2 - t1:.3f}s)')
- 
-            if torch.is_tensor(n):
-            	prediction = n.item()
-            else:
-            	prediction = n
-            cv2.putText(im0, 'Number of people=' + str(prediction), (30, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)	
-
-
 
             # Stream results
             if view_img:
                 cv2.imshow(str(p), im0)
                 cv2.waitKey(1)  # 1 millisecond
                 
-                
-                
-
             # Save results (image with detections)
             if save_img:
                 if dataset.mode == 'image':
