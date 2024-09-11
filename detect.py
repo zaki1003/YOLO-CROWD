@@ -102,24 +102,19 @@ def detect(save_img=False):
                     s += f"{n} {names[int(c)]}{'s' * (n > 1)}, "  # add to string
 
                 # Write results
-                for *xyxy, conf, cls in reversed(det):
-                    if save_txt:  # Write to file
-                        xywh = (xyxy2xywh(torch.tensor(xyxy).view(1, 4)) / gn).view(-1).tolist()  # normalized xywh
-                        line = (cls, *xywh, conf) if opt.save_conf else (cls, *xywh)  # label format
-                        with open(txt_path + '.txt', 'a') as f:
-                            f.write(('%g ' * len(line)).rstrip() % line + '\n')
+                for *xyxy, conf, cls in reversed(det):  # Loop through detections
+                    # Draw bounding box
+                    label = f'{names[int(cls)]} {conf:.2f}'
+                    plot_one_box(xyxy, im0, label=label, color=colors[int(cls)], line_thickness=3)
 
-                    if save_img or view_img:  # Add bbox to image
-                        label = f'{names[int(cls)]} {conf:.2f}'
-                        #plot_one_box(xyxy, im0, label=label, color=colors[int(cls)], line_thickness=3)
-                        plot_one_box(xyxy, im0, label=None, color=colors[int(cls)], line_thickness=3)
+                # Optional: Draw custom text like the number of people detected
+                if torch.is_tensor(n):
+                    prediction = n.item()  # Convert tensor to Python number if needed
+                else:
+                    prediction = n
+                cv2.putText(im0, 'Number of people=' + str(prediction), (30, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
 
-            # Print time (inference + NMS)
             print(f'{s}Done. ({t2 - t1:.3f}s)')
-
-
-            im0 = annotator.result()
-
  
             if torch.is_tensor(n):
             	prediction = n.item()
