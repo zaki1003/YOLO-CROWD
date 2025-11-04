@@ -14,7 +14,7 @@ from utils.general import check_img_size, check_requirements, check_imshow, non_
     scale_coords, xyxy2xywh, strip_optimizer, set_logging, increment_path
 from utils.plots import plot_one_box
 from utils.torch_utils import select_device, load_classifier, time_synchronized
-
+from ultralytics.utils.plotting import Annotator, colors, save_one_box
 
 def detect(save_img=False):
     source, weights, view_img, save_txt, imgsz = opt.source, opt.weights, opt.view_img, opt.save_txt, opt.img_size
@@ -92,6 +92,7 @@ def detect(save_img=False):
             txt_path = str(save_dir / 'labels' / p.stem) + ('' if dataset.mode == 'image' else f'_{frame}')  # img.txt
             s += '%gx%g ' % img.shape[2:]  # print string
             gn = torch.tensor(im0.shape)[[1, 0, 1, 0]]  # normalization gain whwh
+            #annotator = Annotator(im0, line_width=3, example=str(names))
             if len(det):
                 # Rescale boxes from img_size to im0 size
                 det[:, :4] = scale_coords(img.shape[2:], det[:, :4], im0.shape).round()
@@ -112,13 +113,18 @@ def detect(save_img=False):
                     if save_img or view_img:  # Add bbox to image
                         label = f'{names[int(cls)]} {conf:.2f}'
                         #plot_one_box(xyxy, im0, label=label, color=colors[int(cls)], line_thickness=3)
+                        #annotator.box_label(xyxy, label, color=colors(c))
+                    
                         plot_one_box(xyxy, im0, label=None, color=colors[int(cls)], line_thickness=3)
-
+                
+                        # In case you want to show labels, use the below line and comment the above line
+                        # plot_one_box(xyxy, im0, label=label, color=colors[int(cls)], line_thickness=3)
+          
             # Print time (inference + NMS)
             print(f'{s}Done. ({t2 - t1:.3f}s)')
 
-
-            im0 = annotator.result()
+            # Stream results
+            #im0 = annotator.result()
 
  
             if torch.is_tensor(n):
